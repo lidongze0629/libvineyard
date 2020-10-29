@@ -47,6 +47,11 @@ struct TypeToInt<uint64_t> {
   static constexpr int value = 4;
 };
 
+template <>
+struct TypeToInt<std::string> {
+  static constexpr int value = 5;
+};
+
 inline int ArrowDataTypeToInt(std::shared_ptr<arrow::DataType> type) {
   if (type->Equals(arrow::int32())) {
     return 1;
